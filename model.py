@@ -69,7 +69,7 @@ class DecoderRNN(nn.Module):
         
         for i in range(20):
             # We pass the inputs through the lstm network
-            outputs, hid = self.lstm(inputs, states)
+            outputs, states = self.lstm(inputs, states)
             # Then we pass the outputs of the lstm through the linear layer to get the scores
             all_scores = self.fc(outputs)
             # After that we get the highest score among the socres which will be our next prediced word
